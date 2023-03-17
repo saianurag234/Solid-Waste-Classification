@@ -8,7 +8,6 @@ st.sidebar.markdown("<h3 style='text-align: center;'>Or </h3>", unsafe_allow_htm
 upload_file = st.sidebar.file_uploader("Upload the photo of the Waste")
 
 button = st.button("Predict")
-next = st.button("Next")
 
 if button:
   if camera_image is not None:
