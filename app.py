@@ -12,17 +12,20 @@ def page1():
     st.title("Solid Waste Classfication")
     st.image("https://millerrecycling.com/wp-content/uploads/2020/10/organic-waste.jpg", width=None)
     
+    if camera_image is not None:
+        image = cv2.imdecode(np.frombuffer(camera_image.read(), np.uint8), 1)
+            
+    if upload_file is not None:
+        image = cv2.imdecode(np.frombuffer(upload_file.read(), np.uint8), 1)
+    
             
     if st.button("Next"):
-        if camera_image is not None:
-            image = cv2.imdecode(np.frombuffer(camera_image.read(), np.uint8), 1)
-            
-        else:
-            image = cv2.imdecode(np.frombuffer(upload_file.read(), np.uint8), 1)
         st.session_state.current_page = "Page 2"
 
 def page2():
     st.title(d)
+    if st.button("Back"):
+        st.session_state.current_page = "Page 1"
 
 
 # Create a dictionary of page names and their corresponding functions
