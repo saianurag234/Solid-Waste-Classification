@@ -25,7 +25,7 @@ def page1():
         st.session_state.current_page = "Page 2"
 
 def page2():
-    st.title(d)
+    st.image(image, use_column_width=True)
     if st.button("Back"):
         st.session_state.current_page = "Page 1"
 
