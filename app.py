@@ -17,6 +17,9 @@ def page1():
             
     if upload_file is not None:
         image = cv2.imdecode(np.frombuffer(upload_file.read(), np.uint8), 1)
+        
+     if camera_image and upload_file is not None:
+        st.subheader("Please upload an image")
     
             
     if st.button("Next"):
