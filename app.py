@@ -12,7 +12,7 @@ button = st.button("Predict")
 if button:
   if camera_image is not None:
     image = cv2.imdecode(np.frombuffer(camera_image.read(), np.uint8), 1)
+    st.image(image, use_column_width=True)
   else:
     image = cv2.imdecode(np.frombuffer(upload_file.read(), np.uint8), 1)
-
-st.image(image, use_column_width=True)
+    st.image(image, use_column_width=True)
