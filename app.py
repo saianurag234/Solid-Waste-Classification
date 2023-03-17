@@ -1,19 +1,18 @@
-import streamlit as st
-import cv2
-import numpy as np
+import streamlit as st 
+st.session_state.page_select = st.sidebar.radio('Pages', ['Page 1', 'Page 2', 'Page 3'])
 
-st.title("Solid Waste Classfication")
-camera_image = st.sidebar.camera_input("Take a Photo of the waste")
-st.sidebar.markdown("<h3 style='text-align: center;'>Or </h3>", unsafe_allow_html=True)
-upload_file = st.sidebar.file_uploader("Upload the photo of the Waste")
+if st.session_state.page_select == 'Page 1':
+    st.title('Page 1')
+    next = st.button('Go to page 2')
+    if next:
+        st.session_state.page_select = 'Page 2'
 
-button = st.button("Predict")
+if st.session_state.page_select == 'Page 2':
+    st.title('Page 2')
+    next2 = st.button('Go to page 3')
+    if next2:
+        st.session_state.page_select = 'Page 3'  
 
-if button:
-  if camera_image is not None:
-    image = cv2.imdecode(np.frombuffer(camera_image.read(), np.uint8), 1)
-    st.image(image, use_column_width=True)
-  else:
-    image = cv2.imdecode(np.frombuffer(upload_file.read(), np.uint8), 1)
-    st.image(image, use_column_width=True)
-    
+
+if st.session_state.page_select == 'Page 3':
+    st.title('Page 3')
