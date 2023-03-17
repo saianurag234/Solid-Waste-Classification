@@ -20,7 +20,7 @@ def page1():
             st.image(image, use_column_width=True)
             
     if st.button("Next"):
-        st.session_state.current_page = "Page 1"
+        st.session_state.current_page = "Page 2"
 
 def page2():
     st.title("Page 2")
