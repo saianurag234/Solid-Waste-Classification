@@ -1,6 +1,13 @@
 import streamlit as st
 
 st.title("Solid Waste Classfication")
-st.sidebar.camera_input("Take a Photo of the waste")
+camera_image = st.sidebar.camera_input("Take a Photo of the waste")
 st.sidebar.markdown("<h3 style='text-align: center;'>Or </h3>", unsafe_allow_html=True)
-st.sidebar.file_uploader("Upload the photo of the Waste")
+upload_image = st.sidebar.file_uploader("Upload the photo of the Waste")
+
+if camera_image is not None:
+  image = cv2.imdecode(np.frombuffer(camera_image.read(), np.uint8), 1)
+else:
+  image = cv2.imdecode(np.frombuffer(upload_image.read(), np.uint8), 1)
+
+st.image(image)
