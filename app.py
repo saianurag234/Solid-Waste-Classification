@@ -19,12 +19,15 @@ if camera_image is not None and upload_file is not None:
 def page1():
     st.title("Solid Waste Classfication")
     st.image("https://millerrecycling.com/wp-content/uploads/2020/10/organic-waste.jpg", width=None)
+    
+    b1 = st.button("Predict")
             
-    if st.button("Next"):
+    if b1:
         st.session_state.current_page = "Page 2"
 
 def page2():
     st.image(image, use_column_width=True)
+    
     if st.button("Back"):
         st.session_state.current_page = "Page 1"
 
