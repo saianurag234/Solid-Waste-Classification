@@ -1,27 +1,37 @@
 import streamlit as st
-import cv2
-import numpy as np
+from streamlit.hashing import _CodeHasher
+from SessionState import get
 
-st.title("Solid Waste Classfication")
-camera_image = st.sidebar.camera_input("Take a Photo of the waste")
-st.sidebar.markdown("<h3 style='text-align: center;'>Or </h3>", unsafe_allow_html=True)
-upload_file = st.sidebar.file_uploader("Upload the photo of the Waste")
+# Define the SessionState function
+def set_session_state():
+    session = get(code=hash(str(_CodeHasher)))
+    if not session.page:
+        session.page = 1
+    return session
 
-button = st.button("Predict")
+# Initialize the session state
+session = set_session_state()
 
-if button:
-  if camera_image is not None:
-    image = cv2.imdecode(np.frombuffer(camera_image.read(), np.uint8), 1)
-    st.image(image, use_column_width=True)
-  else:
-    image = cv2.imdecode(np.frombuffer(upload_file.read(), np.uint8), 1)
-    st.image(image, use_column_width=True)
-     
+# Create a function to handle the next button click
+def next_button():
+    session.page += 1
 
-st.session_state.page_select = st.button('Next')
+# Define the pages
+page1 = """
+        ## Page 1
+        This is the first page.
+        """
 
-if st.session_state.page_select == True:
-    st.title('Page 1')
-    next = st.button('Go to page 2')
-    if next:
-        st.session_state.page_select = 'Page 2'
+page2 = """
+        ## Page 2
+        This is the second page.
+        """
+
+# Create the Streamlit app
+if session.page == 1:
+    st.markdown(page1)
+else:
+    st.markdown(page2)
+
+if st.button('Next'):
+    next_button()
