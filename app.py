@@ -6,6 +6,7 @@ import numpy as np
 camera_image = st.sidebar.camera_input("Take a Photo of the waste")
 st.sidebar.markdown("<h3 style='text-align: center;'>Or </h3>", unsafe_allow_html=True)
 upload_file = st.sidebar.file_uploader("Upload the photo of the Waste")
+d = 1
 
 def page1():
     st.title("Solid Waste Classfication")
@@ -21,7 +22,7 @@ def page1():
         st.session_state.current_page = "Page 2"
 
 def page2():
-    st.image(image, use_column_width=True)
+    st.title(d)
 
 
 # Create a dictionary of page names and their corresponding functions
