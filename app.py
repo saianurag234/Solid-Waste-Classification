@@ -15,18 +15,13 @@ def page1():
     if st.button("Next"):
         if camera_image is not None:
             image = cv2.imdecode(np.frombuffer(camera_image.read(), np.uint8), 1)
-            st.image(image, use_column_width=True)
+            
         else:
             image = cv2.imdecode(np.frombuffer(upload_file.read(), np.uint8), 1)
-            st.image(image, use_column_width=True)
         st.session_state.current_page = "Page 2"
 
 def page2():
-    st.title("Page 2")
-    # Add content for page 2 here
-    st.write("Welcome to Page 2!")
-    if st.button("Next"):
-        st.session_state.current_page = "Page 1"
+    st.image(image, use_column_width=True)
 
 
 # Create a dictionary of page names and their corresponding functions
