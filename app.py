@@ -16,3 +16,8 @@ if button:
   else:
     image = cv2.imdecode(np.frombuffer(upload_file.read(), np.uint8), 1)
     st.image(image, use_column_width=True)
+    
+st.set_page_config(
+    page_title="Multipage App",
+    page_icon="👋",
+)
