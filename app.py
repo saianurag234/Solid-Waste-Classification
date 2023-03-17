@@ -11,7 +11,6 @@ def page1():
     st.title("Solid Waste Classfication")
     st.image("https://millerrecycling.com/wp-content/uploads/2020/10/organic-waste.jpg", width=None)
     
-    button = st.button("Predict")
             
     if st.button("Next"):
         if camera_image is not None:
