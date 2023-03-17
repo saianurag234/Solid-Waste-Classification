@@ -1,4 +1,5 @@
 import streamlit as st
+import cv2
 
 st.title("Solid Waste Classfication")
 camera_image = st.sidebar.camera_input("Take a Photo of the waste")
