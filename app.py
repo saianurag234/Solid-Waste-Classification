@@ -26,7 +26,7 @@ def page1():
 def page2():
     st.image(image, use_column_width=True)
     if st.button("Back", key="prev_page"):
-        st.session_state.current_page = "Page 1")
+        st.session_state.current_page = "Page 1"
 
 
 # Create a dictionary of page names and their corresponding functions
