@@ -6,7 +6,6 @@ import numpy as np
 camera_image = st.sidebar.camera_input("Take a Photo of the waste")
 st.sidebar.markdown("<h3 style='text-align: center;'>Or </h3>", unsafe_allow_html=True)
 upload_file = st.sidebar.file_uploader("Upload the photo of the Waste")
-d = 1
 
 def page1():
     st.title("Solid Waste Classfication")
@@ -18,7 +17,7 @@ def page1():
     if upload_file is not None:
         image = cv2.imdecode(np.frombuffer(upload_file.read(), np.uint8), 1)
         
-     if camera_image is not None and upload_file is not None:
+    if camera_image is not None and upload_file is not None:
         st.subheader("Please upload an image")
     
             
