@@ -11,6 +11,8 @@ def page1():
     st.title("Solid Waste Classfication")
     st.sidebar.image("https://post.healthline.com/wp-content/uploads/2020/08/chest-x-ray_thumb.jpg", width=None)
     
+    button = st.button("Predict")
+    
     if button:
         if camera_image is not None:
             image = cv2.imdecode(np.frombuffer(camera_image.read(), np.uint8), 1)
