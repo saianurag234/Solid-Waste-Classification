@@ -1,11 +1,10 @@
 import streamlit as st
-from streamlit.hashing import _CodeHasher
-from SessionState import get
+from SessionState import get_state
 
 # Define the SessionState function
 def set_session_state():
-    session = get(code=hash(str(_CodeHasher)))
-    if not session.page:
+    session = get_state()
+    if not hasattr(session, 'page'):
         session.page = 1
     return session
 
