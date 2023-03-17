@@ -9,7 +9,7 @@ upload_file = st.sidebar.file_uploader("Upload the photo of the Waste")
 
 def page1():
     st.title("Solid Waste Classfication")
-    st.sidebar.image("https://post.healthline.com/wp-content/uploads/2020/08/chest-x-ray_thumb.jpg", width=None)
+    st.image("https://millerrecycling.com/wp-content/uploads/2020/10/organic-waste.jpg", width=None)
     
     button = st.button("Predict")
     
