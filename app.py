@@ -9,7 +9,7 @@ upload_file = st.sidebar.file_uploader("Upload the photo of the Waste")
 
 def page1():
     st.title("Solid Waste Classfication")
-    button = st.button("Predict")
+    st.sidebar.image("https://post.healthline.com/wp-content/uploads/2020/08/chest-x-ray_thumb.jpg", width=None)
     
     if button:
         if camera_image is not None:
