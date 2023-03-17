@@ -1,36 +1,18 @@
 import streamlit as st
-from SessionState import get_state
+# page1.py
+import foo
+foo.hello = 123
 
-# Define the SessionState function
-def set_session_state():
-    session = get_state()
-    if not hasattr(session, 'page'):
-        session.page = 1
-    return session
+# page2.py
+import foo
+st.write(foo.hello)  # If page1 already executed, this should write 123
 
-# Initialize the session state
-session = set_session_state()
+# page1.py
 
-# Create a function to handle the next button click
-def next_button():
-    session.page += 1
+if "shared" not in st.session_state:
+   st.session_state["shared"] = True
 
-# Define the pages
-page1 = """
-        ## Page 1
-        This is the first page.
-        """
-
-page2 = """
-        ## Page 2
-        This is the second page.
-        """
-
-# Create the Streamlit app
-if session.page == 1:
-    st.markdown(page1)
-else:
-    st.markdown(page2)
-
-if st.button('Next'):
-    next_button()
+# page2.py
+import streamlit as st
+st.write(st.session_state["shared"])
+# If page1 already executed, this should write True
