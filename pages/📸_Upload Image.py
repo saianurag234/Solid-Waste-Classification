@@ -1,4 +1,5 @@
 import streamlit as st
+from streamlit_extras.switch_page_button import switch_page
 
 st.subheader("Upload an Image")
 upload_file = st.file_uploader(" ")
