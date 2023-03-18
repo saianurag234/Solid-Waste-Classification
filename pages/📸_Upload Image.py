@@ -8,6 +8,7 @@ st.markdown("<h2 style='text-align: center;;'>or</h2>", unsafe_allow_html=True)
 st.subheader("Take a photo")
 camera_input = st.camera_input(" ")
 
+st.subheader(" ")
 
 Predict = st.button("Predict")
 
