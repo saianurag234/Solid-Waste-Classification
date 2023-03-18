@@ -1,7 +1,6 @@
 import streamlit as st
 
-st.title("Hello")
-st.subheader("Upload the Image")
+st.markdown("Upload the Image")
 upload_file = st.file_uploader(" ")
 camera_input = st.camera_input("Take a photo")
 
