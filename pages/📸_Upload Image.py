@@ -17,4 +17,4 @@ if Predict:
     image = cv2.imdecode(np.frombuffer(camera_input.read(), np.uint8), 1)
   else:
     st.write("Please upload the image")
-   switch_page("Contribution")
+  switch_page("Contribution")
