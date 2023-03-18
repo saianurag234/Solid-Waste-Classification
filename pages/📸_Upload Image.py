@@ -1,8 +1,9 @@
 import streamlit as st
 
-st.markdown("Upload the Image")
+st.subheader("Upload the Image")
 upload_file = st.file_uploader(" ")
-camera_input = st.camera_input("Take a photo")
+st.subheader("take a photo")
+camera_input = st.camera_input(" ")
 
 if upload_file is not None:
   image = cv2.imdecode(np.frombuffer(upload_file.read(), np.uint8), 1)
