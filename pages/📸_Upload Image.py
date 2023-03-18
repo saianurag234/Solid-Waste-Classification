@@ -1,6 +1,7 @@
 import streamlit as st
 
-upload_file = st.file_uploader("Upload the Image")
+st.write("Upload the Image")
+upload_file = st.file_uploader("")
 camera_input = st.camera_input("Take a photo")
 
 if upload_file is not None:
