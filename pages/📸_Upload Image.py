@@ -12,14 +12,6 @@ st.subheader(" ")
 
 Predict = st.button("Predict")
 
-m = st.markdown("""
-<style>
-div.stButton > button:first-child {
-    background-color: rgb(204, 49, 49);
-}
-</style>""", unsafe_allow_html=True)
-
-b = st.button("test")
 
 if Predict:
   if upload_file is not None:
