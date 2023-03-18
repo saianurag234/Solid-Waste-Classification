@@ -1,7 +1,6 @@
-import streamlit as st
-from streamlit_extras import switch_page
+import streamlit
+from streamlit_extras.switch_page_button import switch_page
 
-st.title("Home Page")
-
-if st.button("Next Page"):
-  switch_page("About")
+want_to_contribute = st.button("About")
+if want_to_contribute:
+    switch_page("About")
