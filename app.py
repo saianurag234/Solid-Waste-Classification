@@ -1,41 +1,64 @@
 import streamlit as st
-from PIL import Image
+from streamlit_option_menu import option_menu
 
-# Define function to display uploaded image
-def display_image(image):
-    st.image(image, caption='Uploaded Image', use_column_width=True)
+# 1=sidebar menu, 2=horizontal menu, 3=horizontal menu w/ custom menu
+EXAMPLE_NO = 1
 
-# Define function to handle image upload and navigation to new page
-def handle_image_upload():
-    # Display instructions for uploading image
-    st.write('Please upload an image:')
-    
-    # Allow user to upload image
-    uploaded_image = st.file_uploader('', type=['png', 'jpg', 'jpeg'])
-    
-    # If user has uploaded an image
-    if uploaded_image is not None:
-        # Display the uploaded image on the current page
-        display_image(uploaded_image)
-        
-        # Navigate to new page to display the uploaded image
-        st.write('Navigating to new page...')
-        st.experimental_rerun()
-        st.write('Uploaded image:')
-        display_image(uploaded_image)
-    
-# Define main function to run the app
-def main():
-    # Set page title and icon
-    st.set_page_config(page_title='Image Upload', page_icon=':camera:')
-    
-    # Define page layout
-    st.title('Image Upload')
-    st.write('Upload an image and click the "Predict" button to navigate to a new page and display the uploaded image.')
-    
-    # Display image upload form
-    handle_image_upload()
 
-# Run the app
-if __name__ == '__main__':
-    main()
+def streamlit_menu(example=1):
+    if example == 1:
+        # 1. as sidebar menu
+        with st.sidebar:
+            selected = option_menu(
+                menu_title="Main Menu",  # required
+                options=["Home", "Projects", "Contact"],  # required
+                icons=["house", "book", "envelope"],  # optional
+                menu_icon="cast",  # optional
+                default_index=0,  # optional
+            )
+        return selected
+
+    if example == 2:
+        # 2. horizontal menu w/o custom style
+        selected = option_menu(
+            menu_title=None,  # required
+            options=["Home", "Projects", "Contact"],  # required
+            icons=["house", "book", "envelope"],  # optional
+            menu_icon="cast",  # optional
+            default_index=0,  # optional
+            orientation="horizontal",
+        )
+        return selected
+
+    if example == 3:
+        # 2. horizontal menu with custom style
+        selected = option_menu(
+            menu_title=None,  # required
+            options=["Home", "Projects", "Contact"],  # required
+            icons=["house", "book", "envelope"],  # optional
+            menu_icon="cast",  # optional
+            default_index=0,  # optional
+            orientation="horizontal",
+            styles={
+                "container": {"padding": "0!important", "background-color": "#fafafa"},
+                "icon": {"color": "orange", "font-size": "25px"},
+                "nav-link": {
+                    "font-size": "25px",
+                    "text-align": "left",
+                    "margin": "0px",
+                    "--hover-color": "#eee",
+                },
+                "nav-link-selected": {"background-color": "green"},
+            },
+        )
+        return selected
+
+
+selected = streamlit_menu(example=EXAMPLE_NO)
+
+if selected == "Home":
+    st.title(f"You have selected {selected}")
+if selected == "Projects":
+    st.title(f"You have selected {selected}")
+if selected == "Contact":
+    st.title(f"You have selected {selected}")
