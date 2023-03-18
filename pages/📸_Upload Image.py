@@ -2,7 +2,10 @@ import streamlit as st
 
 st.subheader("Upload the Image")
 upload_file = st.file_uploader(" ")
-st.subheader("take a photo")
+
+st.markdown("<h1 style='text-align: center;;'>Or</h1>", unsafe_allow_html=True)
+
+st.subheader("Take a photo")
 camera_input = st.camera_input(" ")
 
 if upload_file is not None:
